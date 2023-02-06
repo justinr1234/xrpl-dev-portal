@@ -118,22 +118,6 @@
   }
 }
 
-#top-exchanges {
-  // Vector logos
-  @each $exchange in "bitstamp", "kraken", "cex-io", "liquid", "lmax", "bitfinex", "etoro" {
-    #exch-#{$exchange} {
-      content: url("../img/exchanges/#{$exchange}.svg");
-    }
-  }
-
-  // Raster logos
-  @each $exchange in "bittrex", "currency-com", "ftx" {
-    #exch-#{$exchange} {
-      content: url("../img/exchanges/#{$exchange}.png");
-    }
-  }
-}
-
 // XRPL Overview Page
 #xrpl-overview-purple {
   position: absolute;
