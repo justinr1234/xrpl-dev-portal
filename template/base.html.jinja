@@ -65,6 +65,12 @@
     <script src="{{currentpage.prefix}}assets/js/js-editor.js"></script>
     {% endif %}
 
+    <link rel="stylesheet" href="{{currentpage.prefix}}assets/css/xrplai.css" />
+    <style>
+      .MarkpromptContentDialog {
+        z-index: 1
+      }
+    </style>
     {% if target.light_theme_enabled %}
     <!-- Theme switch -->
     <script src="{{currentpage.prefix}}assets/js/theme-switch.js"></script>
@@ -146,6 +152,27 @@ $(document).ready(() => {
   }
 })
 </script>
+
+ <!-- XRPL AI -->
+<script>
+  window.markprompt = {
+    // NOTE: This is the development key, DO NOT USE THIS IN PRODCTION
+    projectKey: `sk_test_i4WeLrhPtulIx1wHkcb15XouWrGiY9bf`,
+    options: {
+      prompt: {
+        apiUrl: 'https://api.xrplai.dev.ripplex.io/completions'
+      },
+      references: {
+        getHref: (reference) => reference.file?.path?.replace(/\.[^.]+$/, ''),
+        getLabel: (reference) => {
+          return reference.meta?.leadHeading?.value || reference.file?.title;
+        },
+      },
+      showBranding: false,
+    },
+  };
+</script>
+<script src="{{currentpage.prefix}}assets/js/xrplai.js"></script>
 
 {% if currentpage.embed_xrpl_js %}
 <!-- ripple-lib & prerequisites -->
